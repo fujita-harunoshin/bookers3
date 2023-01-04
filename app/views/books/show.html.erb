@@ -4,21 +4,7 @@
     <div class="row">
       <!--userのshowページの左側-->
       <div class="col-md-3">
-        <h2>User info</h2>
-        <%= image_tag @user.get_profile_image(100, 100) %>
-        <table class="table">
-          <tbody>
-            <tr></tr>
-            <tr>
-              <th>name</th>
-              <th><%= @user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= @user.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
+        <%= render 'user_info', user: @user %>
         <div class="row">
           <%= link_to "編集", edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block edit_user_70835" %>
         </div>
@@ -60,10 +46,10 @@
               </td>
               <% if @book.user == current_user %>
               <td>
-                <%= link_to "Edit", book_path(@book.id), class:"btn btn-sm btn-success" %>
+                <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %>
               </td>
               <td>
-                <%= link_to "Destroy", book_path(@book.id), class:"btn btn-sm btn-danger" %>
+                <%= link_to "Destroy", book_path(@book.id), method: :delete, class:"btn btn-sm btn-danger" %>
               </td>
               <% end %>
             </tr>

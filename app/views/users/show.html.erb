@@ -1,24 +1,9 @@
 <main>
-  <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
       <!--userのshowページの左側-->
       <div class="col-md-3">
-        <h2>User info</h2>
-        <%= image_tag @user.get_profile_image(100, 100) %>
-        <table class="table">
-          <tbody>
-            <tr></tr>
-            <tr>
-              <th>name</th>
-              <th><%= @user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= @user.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
+        <%= render 'books/user_info', user: @user %>
         <div class="row">
           <%= link_to "編集", edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block edit_user_70835" %>
         </div>

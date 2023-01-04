@@ -1,18 +1,19 @@
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
-    <!--<% if @new_book.errors.any? %>-->
-    <!--<div class="error_explanation">-->
-      <!--<ul class="alert alert-danger" role="alert">-->
-      <!--<h6 class="alert-heading">-->
-      <!--<%= @new_book.errors.count %>件のエラーが発生しました-->
-      <!--</h6>-->
-      <!--<% @new_book.errors.full_messages.each do |message| %>-->
-      <!--<li><%= message %></li>-->
-      <!--<% end %>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<% end %>-->
+    <% if @new_book.errors.any? %>
+    <div class="error_explanation">
+      <ul class="alert alert-danger" role="alert">
+      <h6 class="alert-heading">
+      <%= @new_book.errors.count %> errors prohibited this obj from being saved:
+      </h6>
+      <ul>
+      <% @new_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
     <div class="row">
       <!--userのshowページの左側-->
       <div class="col-md-3">
