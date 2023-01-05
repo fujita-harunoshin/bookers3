@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-nav i {
+  display: inline-block;
+  color: #fff;
+}

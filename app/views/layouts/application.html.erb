@@ -4,6 +4,7 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/f083d48cc8.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,29 +26,32 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= user_path(current_user.id) %>><span><i class="fas fa-home"></i></span> Home</a>
               </li>
               <li class="nav-item">
-                <%= link_to "Users", users_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= users_path %>><span><i class="fas fa-users"></i></span> Users</a>
               </li>
               <li class="nav-item">
-                <%= link_to "Books", books_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= books_path %>><span><i class="fas fa-book-open"></i></span> Books</a>
               </li>
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <span><i class="fas fa-sign-out-alt"></i></span> Log out
+                <% end %>
+                <!--<a class="nav-link text-light" href=<%= destroy_user_session_path %>><span><i class="fas fa-sign-out-alt"></i></span> Log out</a>-->
               </li>
               <% else %>
               <li class="nav-item">
-                <%= link_to "Home", root_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= root_path %>><span><i class="fas fa-home"></i></span> Home</a>
               </li>
               <li class="nav-item">
-                <%= link_to "About", about_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= about_path %>><span><i class="fas fa-link"></i></span> About</a>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= new_user_registration_path %>><span><i class="fas fa-user-plus"></i></span> Sign up</a>
               </li>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+                <a class="nav-link text-light" href=<%= new_user_session_path %>><span><i class="fas fa-sign-in-alt"></i></span> Log in</a>
               </li>
               <% end %>
             </ul>
