@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="mb-4">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -59,9 +59,11 @@
         </div>
       </nav>
     </header>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
+    <div class="container px-5 px-sm-0">
+      <% flash.each do |key, value| %>
+        <p><%= content_tag(:div, value, class: "#{key}") %></p>
+      <% end %>
+    </div>
     <%= yield %>
     <footer>
       <div class="container mt-5">
